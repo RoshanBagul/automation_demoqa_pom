@@ -1,0 +1,12 @@
+<suite name = "Automation Suite">
+    <test name="All Test">
+        <listeners>
+            <listener class-name="listners.ExtentListener"/>
+        </listeners>
+        <classes>
+            <class name = "tests.HomePageTest"/>
+            <class name = "tests.elementsPageTest"/>
+            <class name = "tests.TextBoxTest"/>
+        </classes>
+    </test>
+</suite>
