@@ -60,12 +60,19 @@
             <version>2.0.13</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <version>1.18.30</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.32</version> <!-- Use the latest version -->
+                <scope>provided</scope>
+            </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
