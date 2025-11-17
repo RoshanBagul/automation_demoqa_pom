@@ -3,9 +3,8 @@ package tests;
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import util.ConfigReader;
 import pages.HomePage;
-
-import java.io.IOException;
 
 
 public class HomePageTest extends BaseTest {
@@ -17,5 +16,4 @@ public class HomePageTest extends BaseTest {
         homePage.validateHomepage();
         System.out.println("Title of the page is: "+ driver.getTitle());
     }
-
 }

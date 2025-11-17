@@ -2,17 +2,16 @@ package tests;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.elementsPage;
+import pages.ElementsPage;
 
-import java.io.IOException;
-
-public class elementsPageTest extends BaseTest {
+public class ElementsPageTest extends BaseTest {
 
     @Test (priority = 2)
     public void TestElementsPageValidation() throws InterruptedException {
-        elementsPage elemental = new elementsPage(driver);
+        ElementsPage elementsPage = new ElementsPage(driver);
 //        test = extent.createTest("Elements Page Test");
-        elemental.validateElementsPage();
-    }
+//        elemental.validateElementsPage();
+        elementsPage.validateHomepage();
 
+    }
 }
