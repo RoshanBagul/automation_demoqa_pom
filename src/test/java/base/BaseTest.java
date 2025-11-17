@@ -7,7 +7,6 @@ import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.devtools.v135.io.IO;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
 import util.ConfigReader;
@@ -22,7 +21,6 @@ import java.sql.Time;
 import java.time.Duration;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
@@ -90,8 +88,6 @@ public class BaseTest {
         }
         Reporter.log("===============Browser " + browser + " launched successfully==================", true);
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
