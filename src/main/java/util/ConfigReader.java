@@ -1,7 +1,5 @@
 package util;
 
-import org.testng.annotations.BeforeClass;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
