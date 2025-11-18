@@ -18,7 +18,7 @@ public class ElementsPage extends HomePage {
     public By Title = By.xpath("//h1[text()='Text Box']");
     public By fullName = By.xpath("//input[@id='userName']");
     public By email = By.id("userEmail");
-    public By currentAddress = By.id("currentAddress");
+    public By currentAddress = By.xpath("//textarea[@id='currentAddress']");
     public By permanentAddress = By.id("permanentAddress");
     public By submitButton = By.id("submit");
     public By outPut = By.id("output");
@@ -40,11 +40,12 @@ public class ElementsPage extends HomePage {
        openTextBoxPage();
         driver.findElement(fullName).sendKeys(full_name);
         driver.findElement(email).sendKeys(ConfigReader.get("Email_id"));
-        driver.findElement(currentAddress).sendKeys(ConfigReader.get("Current_Address"));
-        driver.findElement(permanentAddress).sendKeys(ConfigReader.get("PermanentAddress"));
+        driver.findElement(currentAddress).sendKeys(ConfigReader.get("Current_address"));
+        driver.findElement(permanentAddress).sendKeys(ConfigReader.get("Permanent_address"));
 
+        Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight");
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
         driver.findElement(submitButton).click();
     }
 
@@ -61,28 +62,22 @@ public class ElementsPage extends HomePage {
     }
 
     public String getOutputCurrentAddress() {
-        return driver.findElement(By.id("currentAddress")).getText();
+        return driver.findElement(By.xpath("//p[@id='currentAddress']")).getText();
     }
 
     public String getOutputPermanentAddress() {
-        return driver.findElement(By.id("permanentAddress")).getText();
+        return driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
     }
 
-    public void ValidateTextBox() throws InterruptedException, IOException {
-
-        String name = driver.findElement(By.xpath("//p[@id='name']")).getText();
-        System.out.println(name);
-        String email = driver.findElement(By.xpath("//p[@id='email']")).getText();
-        System.out.println(email);
-        String currentadd = driver.findElement(By.xpath("//p[@id='currentAddress']")).getText();
-        System.out.println(currentadd);
-        String permanentadd = driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
-        System.out.println(permanentadd);
-
-
-//        Assert.assertEquals(name,"Name:"+Full_name);
-//        Assert.assertEquals(email,"Email:"+ConfigReader.get("Email_id"));
-//        Assert.assertEquals(currentadd,"Current Address :"+ConfigReader.get("Current_Address"));
-//        Assert.assertEquals(permanentadd,"Permananet Address :"+ConfigReader.get("Permanent_address"));
-    }
+//    public void ValidateTextBox() throws InterruptedException, IOException {
+//
+//        String name = driver.findElement(By.xpath("//p[@id='name']")).getText();
+//        System.out.println(name);
+//        String email = driver.findElement(By.xpath("//p[@id='email']")).getText();
+//        System.out.println(email);
+//        String currentadd = driver.findElement(By.xpath("//p[@id='currentAddress']")).getText();
+//        System.out.println(currentadd);
+//        String permanentadd = driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
+//        System.out.println(permanentadd);
+//    }
 }

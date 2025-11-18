@@ -30,7 +30,7 @@ public class BaseTest {
     public static WebDriver driver;
     public static WebDriver baseDriver;
     protected static ExtentReports extent;
-    protected static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
   
 
     @BeforeSuite
@@ -41,12 +41,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws IOException {
-
-        ExtentTest extentTest = extent.createTest("Base Test Setup");
-        test.set(extentTest);
-
         // this method will run Before each @test method we will have
-
         try {
             // reading config properties file
             String propFilePath = System.getProperty("user.dir") + "/src/main/resources/config/config.properties";
@@ -97,10 +92,13 @@ public class BaseTest {
         System.out.println("Current URl:  " + url);
     }
 
-    protected ExtentTest getTest() {
+    public static ExtentTest getTest() {
         return test.get();
     }
 
+    public static WebDriver getDriver(){
+        return driver;
+    }
     @AfterMethod
     public void tearDown(ITestResult result) {
        

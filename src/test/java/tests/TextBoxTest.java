@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class TextBoxTest extends BaseTest {
 
-    @Test (priority = -1)
+    @Test (priority = 3)
     public void validateTextBoxOutput() throws InterruptedException, IOException {
         ElementsPage elementsPage = new ElementsPage(driver);
 
@@ -19,8 +19,8 @@ public class TextBoxTest extends BaseTest {
 
         String expectedName = "Name:" + elementsPage.full_name;
         String expectedEmail = "Email:" + ConfigReader.get("Email_id");
-        String expectedCurrentAddress = "currentAddress:" + ConfigReader.get("Current_address");
-        String expectedPermanentAddress = "permanentAddress:" + ConfigReader.get("Permanent_address");
+        String expectedCurrentAddress = "Current Address :" + ConfigReader.get("Current_address");
+        String expectedPermanentAddress = "Permananet Address :" + ConfigReader.get("Permanent_address");
 
 
         Assert.assertEquals(elementsPage.getOutputName(), expectedName);
