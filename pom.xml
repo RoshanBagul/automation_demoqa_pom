@@ -60,7 +60,6 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.13</version>
         </dependency>
-            <!-- other dependencies -->
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -74,6 +73,13 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

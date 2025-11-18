@@ -12,6 +12,5 @@ public class ElementsPageTest extends BaseTest {
 //        test = extent.createTest("Elements Page Test");
 //        elemental.validateElementsPage();
         elementsPage.validateHomepage();
-
     }
 }
