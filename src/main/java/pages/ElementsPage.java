@@ -7,12 +7,11 @@ import util.ConfigReader;
 
 import java.io.IOException;
 
-public class ElementsPage extends HomePage {
-
+public class ElementsPage {
+    private final WebDriver driver;
     public ElementsPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
-
     public By menulist = By.cssSelector("ul.menu-list");
     public By textBox = By.xpath("//div[@class='element-list collapse show']//li[@id='item-0']");
     public By Title = By.xpath("//h1[text()='Text Box']");
@@ -22,18 +21,15 @@ public class ElementsPage extends HomePage {
     public By permanentAddress = By.id("permanentAddress");
     public By submitButton = By.id("submit");
     public By outPut = By.id("output");
-
     public String full_name = "Automation" + Math.random();
+    public  By elementList = By.xpath("//div[@class='element-group']//div[@class='element-list collapse show']");
 
-    public void openElementsPage() throws InterruptedException {
-        driver.findElement(elementsCard).click();
-        Thread.sleep(2000);
+
+    public void collapseElementList(){
+        driver.findElement(elementList).click();
     }
-
-    public void openTextBoxPage() throws InterruptedException{
-        openElementsPage();
+    public void openTextBoxPage() {
         driver.findElement(textBox).click();
-        Thread.sleep(1000);
     }
 
     public void fillTextBoxForm() throws IOException, InterruptedException {
@@ -68,16 +64,4 @@ public class ElementsPage extends HomePage {
     public String getOutputPermanentAddress() {
         return driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
     }
-
-//    public void ValidateTextBox() throws InterruptedException, IOException {
-//
-//        String name = driver.findElement(By.xpath("//p[@id='name']")).getText();
-//        System.out.println(name);
-//        String email = driver.findElement(By.xpath("//p[@id='email']")).getText();
-//        System.out.println(email);
-//        String currentadd = driver.findElement(By.xpath("//p[@id='currentAddress']")).getText();
-//        System.out.println(currentadd);
-//        String permanentadd = driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
-//        System.out.println(permanentadd);
-//    }
 }
