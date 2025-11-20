@@ -17,12 +17,11 @@ import org.testng.Reporter;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.sql.Time;
 import java.time.Duration;
 import java.io.IOException;
 import java.util.Properties;
 
-public class BaseTest {
+public class BasePage {
 
     // declaring all variables
     public static Properties prop;
