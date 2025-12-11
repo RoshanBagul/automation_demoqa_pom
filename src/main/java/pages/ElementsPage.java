@@ -23,7 +23,43 @@ public class ElementsPage {
     public By outPut = By.id("output");
     public String full_name = "Automation" + Math.random();
     public  By elementList = By.xpath("//div[@class='element-group']//div[@class='element-list collapse show']");
+   // Check Box Elements
+    public By checkboxTitle = By.xpath("//h1[text()='Check Box']");
+    public By expand = By.xpath("//div[@class='rct-options']/button[@title='Expand all']");
+    public By collapse = By.xpath("//div[@class='rct-options']/button[@title='Collapse all']");
+    public By homeExpand = By.xpath("(//span[@class='rct-text']/button)[1]");
+    public By homeCheckbox = By.xpath("//span[text()='Home']/ancestor::span//span[@class='rct-checkbox']");
+    public By desktopCheckBox = By.xpath("//span[text()='Desktop']/ancestor::span//span[@class='rct-checkbox']");
+    public By documentCheckBox = By.xpath("//span[text()='Documents']/ancestor::span//span[@class='rct-checkbox']");
+    public By downloadCheckBox = By.xpath("//span[text()='Downloads']/ancestor::span//span[@class='rct-checkbox']");
+   // Check Radio Button Elements
+    public By radioButton = By.xpath("//ul[@class='menu-list']//span[text()='Radio Button']");
+    public By radioButtonTitle = By.xpath("//h1[text()='Radio Button']");
+    public By yesRadioButton = By.id("yesRadio");
+    public By impressiveRadioButton = By.id("impressiveRadio");
+    public By noRadioButton = By.id("noRadio");  //this is disabled radio button
 
+   //Check Web Tables
+    public By webTables = By.xpath("//ul[@class='menu-list']//span[text()='Web Tables']");
+    public By webTableTitle = By.xpath("//h1[text()='Web Tables']");
+
+    //Check Buttons
+    public By buttons = By.xpath("//ul[@class='menu-list']//span[text()='Buttons']");
+    public By buttonsTitle = By.xpath("//h1[text()='Buttons']");
+
+    //Check Links
+    public By links = By.xpath("//ul[@class='menu-list']//span[text()='Links']");
+
+    //Check Broken Links-Images
+    public By brokenLinks = By.xpath("//ul[@class='menu-list']//span[text()='Broken Links - Images']");
+
+    //Check upload and download
+    public By uploadAndDownload = By.xpath("//ul[@class='menu-list']//span[text()='Upload and Download']");
+
+    //Check Dynamic Properties
+    public By dynamicProperties = By.xpath("//ul[@class='menu-list']//span[text()='Dynamic Properties']");
+
+//------------------------------------------------------------------------------------------------------------------------//
 
     public void collapseElementList(){
         driver.findElement(elementList).click();
@@ -63,5 +99,18 @@ public class ElementsPage {
 
     public String getOutputPermanentAddress() {
         return driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
+    }
+    public void validateCheckBox (){
+
+        driver.findElement(By.xpath("//span[text()='Check Box']")).click();
+        driver.findElement(checkboxTitle).isDisplayed();
+        driver.findElement(expand).click();
+        driver.findElement(collapse).click();
+
+        driver.findElement(homeExpand).click();
+        driver.findElement(homeCheckbox).click();
+        driver.findElement(desktopCheckBox).isDisplayed();
+        driver.findElement(documentCheckBox).isDisplayed();
+        driver.findElement(downloadCheckBox).isDisplayed();
     }
 }
