@@ -23,7 +23,9 @@ public class ElementsPage {
     public By outPut = By.id("output");
     public String full_name = "Automation" + Math.random();
     public  By elementList = By.xpath("//div[@class='element-group']//div[@class='element-list collapse show']");
+
    // Check Box Elements
+    public By checkBox = By.xpath("//span[text()='Check Box']");
     public By checkboxTitle = By.xpath("//h1[text()='Check Box']");
     public By expand = By.xpath("//div[@class='rct-options']/button[@title='Expand all']");
     public By collapse = By.xpath("//div[@class='rct-options']/button[@title='Collapse all']");
@@ -32,6 +34,7 @@ public class ElementsPage {
     public By desktopCheckBox = By.xpath("//span[text()='Desktop']/ancestor::span//span[@class='rct-checkbox']");
     public By documentCheckBox = By.xpath("//span[text()='Documents']/ancestor::span//span[@class='rct-checkbox']");
     public By downloadCheckBox = By.xpath("//span[text()='Downloads']/ancestor::span//span[@class='rct-checkbox']");
+
    // Check Radio Button Elements
     public By radioButton = By.xpath("//ul[@class='menu-list']//span[text()='Radio Button']");
     public By radioButtonTitle = By.xpath("//h1[text()='Radio Button']");
@@ -67,6 +70,14 @@ public class ElementsPage {
     public void openTextBoxPage() {
         driver.findElement(textBox).click();
     }
+    public void openCheckBoxPage(){ driver.findElement(checkBox).click();}
+    public void openRadioButtonPage(){driver.findElement(radioButton).click();}
+    public void openWebTablesPage(){driver.findElement(webTables).click();}
+    public void openButtonsPage(){driver.findElement(buttons).click();}
+    public void openLinksPage(){driver.findElement(links).click();}
+    public void openBrokenLinksPage(){driver.findElement(brokenLinks).click();}
+    public void openUploadAndDownloadPage(){driver.findElement(uploadAndDownload).click();}
+    public void openDynamicPropertiesPage(){driver.findElement(dynamicProperties).click();}
 
     public void fillTextBoxForm() throws IOException, InterruptedException {
        openTextBoxPage();
@@ -101,8 +112,7 @@ public class ElementsPage {
         return driver.findElement(By.xpath("//p[@id='permanentAddress']")).getText();
     }
     public void validateCheckBox (){
-
-        driver.findElement(By.xpath("//span[text()='Check Box']")).click();
+        openCheckBoxPage();
         driver.findElement(checkboxTitle).isDisplayed();
         driver.findElement(expand).click();
         driver.findElement(collapse).click();

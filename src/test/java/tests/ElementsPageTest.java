@@ -16,10 +16,10 @@ public class ElementsPageTest extends BasePage {
         elementsPage = new ElementsPage(driver);
     }
 
-    @Test (priority = -1)
-    public void TestElementsPageValidation() throws InterruptedException {
-        ElementsPage elementsPage = new ElementsPage(driver);
-    }
+//    @Test (priority = -1)
+//    public void TestElementsPageValidation() throws InterruptedException {
+//        ElementsPage elementsPage = new ElementsPage(driver);
+//    }
 
     @Test (priority = 4)
     public void  testCheckBoxValidation(){
