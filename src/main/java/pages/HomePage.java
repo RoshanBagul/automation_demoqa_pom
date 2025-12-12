@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage {
     public WebDriver driver;
@@ -38,7 +40,11 @@ public class HomePage {
         driver.findElement(interactionsCard).click();
     }
 
-    public void openBookCardPage() {
+    public void openBookCardPage() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement element = driver.findElement(bookCard);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
         driver.findElement(bookCard).click();
     }
 
