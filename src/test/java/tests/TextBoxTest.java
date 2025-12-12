@@ -2,7 +2,6 @@ package tests;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.elementsPage;
 
 import java.io.IOException;
 
