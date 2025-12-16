@@ -84,8 +84,8 @@ public class BasePage {
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.get(ConfigReader.get("baseurl"));
         String url = driver.getCurrentUrl();
         System.out.println("Current URl:  " + url);

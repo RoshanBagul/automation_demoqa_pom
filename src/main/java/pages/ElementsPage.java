@@ -9,9 +9,15 @@ import java.io.IOException;
 
 public class ElementsPage {
     private final WebDriver driver;
+    public HomePage homePage;
     public ElementsPage(WebDriver driver) {
         this.driver = driver;
     }
+//    @BeforeMethod
+//    public void initPages(){
+//        homePage = new HomePage(driver);
+//    }
+
     public By menulist = By.cssSelector("ul.menu-list");
     public By textBox = By.xpath("//div[@class='element-list collapse show']//li[@id='item-0']");
     public By Title = By.xpath("//h1[text()='Text Box']");
@@ -80,7 +86,7 @@ public class ElementsPage {
     public void openDynamicPropertiesPage(){driver.findElement(dynamicProperties).click();}
 
     public void fillTextBoxForm() throws IOException, InterruptedException {
-       openTextBoxPage();
+        openTextBoxPage();
         driver.findElement(fullName).sendKeys(full_name);
         driver.findElement(email).sendKeys(ConfigReader.get("Email_id"));
         driver.findElement(currentAddress).sendKeys(ConfigReader.get("Current_address"));
