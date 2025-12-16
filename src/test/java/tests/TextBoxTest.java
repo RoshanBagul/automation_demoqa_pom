@@ -20,7 +20,6 @@ public class TextBoxTest extends BasePage{
     }
     @Test
     public void TestTextBoxValidation() throws InterruptedException, IOException {
-//        elemental.ValidateTextBox();
         homePage.openElementsPage();
         elementsPage.fillTextBoxForm();
     }

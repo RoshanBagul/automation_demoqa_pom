@@ -9,14 +9,9 @@ import java.io.IOException;
 
 public class ElementsPage {
     private final WebDriver driver;
-    public HomePage homePage;
     public ElementsPage(WebDriver driver) {
         this.driver = driver;
     }
-//    @BeforeMethod
-//    public void initPages(){
-//        homePage = new HomePage(driver);
-//    }
 
     public By menulist = By.cssSelector("ul.menu-list");
     public By textBox = By.xpath("//div[@class='element-list collapse show']//li[@id='item-0']");
