@@ -1,4 +1,4 @@
-package tests;
+package tests.Elements;
 
 import base.BasePage;
 import org.openqa.selenium.WebDriver;
@@ -7,18 +7,20 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 
-public class ElementsPageTest extends BasePage {
-    private HomePage homePage;
-    private ElementsPage elementsPage;
+import java.io.IOException;
+
+public class TextBoxTest extends BasePage{
+    public static ElementsPage elementsPage;
+    public static HomePage homePage;
+
     @BeforeMethod
     public void initPages(){
         homePage = new HomePage(driver);
         elementsPage = new ElementsPage(driver);
     }
-
-    @Test (priority = 4)
-    public void  testCheckBoxValidation(){
+    @Test
+    public void TestTextBoxValidation() throws InterruptedException, IOException {
         homePage.openElementsPage();
-        elementsPage.validateCheckBox();
+        elementsPage.fillTextBoxForm();
     }
 }

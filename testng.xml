@@ -6,8 +6,9 @@
         </listeners>
         <classes>
             <class name = "tests.HomePageTest"/>
-            <class name = "tests.ElementsPageTest"/>
-            <class name = "tests.TextBoxTest"/>
+            <class name = "tests.Elements.ElementsPageTest"/>
+            <class name = "tests.Elements.TextBoxTest"/>
+            <class name = "tests.Elements.RadioButtonPageTest"/>
         </classes>
     </test>
 </suite>

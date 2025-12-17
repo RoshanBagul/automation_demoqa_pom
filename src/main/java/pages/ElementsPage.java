@@ -1,8 +1,10 @@
 package pages;
 
+import com.aventstack.extentreports.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import util.ConfigReader;
 
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class ElementsPage {
    // Check Radio Button Elements
     public By radioButton = By.xpath("//ul[@class='menu-list']//span[text()='Radio Button']");
     public By radioButtonTitle = By.xpath("//h1[text()='Radio Button']");
-    public By yesRadioButton = By.id("yesRadio");
+    public By yesRadioButton = By.xpath("//label[@for='yesRadio']");
     public By impressiveRadioButton = By.id("impressiveRadio");
     public By noRadioButton = By.id("noRadio");  //this is disabled radio button
 
@@ -123,5 +125,16 @@ public class ElementsPage {
         driver.findElement(desktopCheckBox).isDisplayed();
         driver.findElement(documentCheckBox).isDisplayed();
         driver.findElement(downloadCheckBox).isDisplayed();
+    }
+
+    public void validateRadioButton () {
+        openRadioButtonPage();
+        driver.findElement(radioButtonTitle).isDisplayed();
+        driver.findElement(yesRadioButton).isEnabled();
+        driver.findElement(impressiveRadioButton).isEnabled();
+        driver.findElement(noRadioButton).isDisplayed();
+
+        driver.findElement(yesRadioButton).click();
+        driver.findElement(By.className("mt-3"));
     }
 }
