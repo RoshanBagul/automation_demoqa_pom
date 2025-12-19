@@ -1,4 +1,4 @@
-package tests;
+package tests.Elements;
 
 import base.BasePage;
 import org.openqa.selenium.WebDriver;
@@ -8,15 +8,15 @@ import pages.ElementsPage;
 import pages.HomePage;
 
 public class ElementsPageTest extends BasePage {
-    private HomePage homePage;
-    private ElementsPage elementsPage;
-    @BeforeMethod
+    public HomePage homePage;
+    public ElementsPage elementsPage;
+    @BeforeMethod(alwaysRun = true)
     public void initPages(){
         homePage = new HomePage(driver);
         elementsPage = new ElementsPage(driver);
     }
 
-    @Test (priority = 4)
+    @Test (groups = {"smoke", "ElementPage"})
     public void  testCheckBoxValidation(){
         homePage.openElementsPage();
         elementsPage.validateCheckBox();

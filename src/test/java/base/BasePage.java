@@ -27,18 +27,17 @@ public class BasePage {
     public static Properties prop;
     public static InputStream fileInputStream;
     public static WebDriver driver;
-    public static WebDriver baseDriver;
     protected static ExtentReports extent;
     public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
   
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
         // this method will run once before the suite starts
         extent = ExtentManager.getInstance();
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() throws IOException {
         // this method will run Before each @test method we will have
         try {
@@ -98,7 +97,7 @@ public class BasePage {
     public static WebDriver getDriver(){
         return driver;
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
        
         ExtentTest extentTest = getTest();
@@ -119,7 +118,7 @@ public class BasePage {
         }   
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void endReport() {
         if (extent != null) {
             extent.flush();

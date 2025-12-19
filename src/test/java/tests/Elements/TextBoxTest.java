@@ -1,4 +1,4 @@
-package tests;
+package tests.Elements;
 
 import base.BasePage;
 import org.openqa.selenium.WebDriver;
@@ -10,15 +10,15 @@ import pages.HomePage;
 import java.io.IOException;
 
 public class TextBoxTest extends BasePage{
-    public static ElementsPage elementsPage;
-    public static HomePage homePage;
+    public ElementsPage elementsPage;
+    public HomePage homePage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void initPages(){
         homePage = new HomePage(driver);
         elementsPage = new ElementsPage(driver);
     }
-    @Test
+    @Test (groups = {"smoke", "ElementPage"})
     public void TestTextBoxValidation() throws InterruptedException, IOException {
         homePage.openElementsPage();
         elementsPage.fillTextBoxForm();
