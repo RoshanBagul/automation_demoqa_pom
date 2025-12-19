@@ -19,6 +19,9 @@ public class HomePage {
     private By bookCard = By.xpath("//h5[text()='Book Store Application']");
 
     public ElementsPage openElementsPage(){
+        WebElement element = driver.findElement(elementsCard);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
         driver.findElement(elementsCard).click();
         return new ElementsPage(driver);
     }
