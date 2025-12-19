@@ -4,6 +4,13 @@
         <listeners>
             <listener class-name="listeners.ExtentListener"/>
         </listeners>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
         <classes>
             <class name = "tests.HomePageTest"/>
             <class name = "tests.Elements.ElementsPageTest"/>

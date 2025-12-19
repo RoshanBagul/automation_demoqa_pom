@@ -10,18 +10,18 @@ import pages.HomePage;
 
 
 public class HomePageTest extends BasePage {
-    private HomePage homePage;
-    @BeforeMethod
+    public HomePage homePage;
+    @BeforeMethod(alwaysRun = true)
     public void initPages(){
         homePage = new HomePage(driver);
     }
 
-    @Test (priority = 1)
+    @Test (priority = 1, groups = {"smoke", "ElementPage"})
     public void testLogo(){
         driver.findElement(By.xpath("//img[@src='/images/Toolsqa.jpg']")); //Validating existence of logo image.
     }
 
-    @Test (priority = 2)
+    @Test (priority = 2, groups = {"smoke", "ElementPage"})
     public void testHeaderFooter(){
         driver.findElement(By.xpath("//header/a"));
         // Validation for Header
@@ -29,7 +29,7 @@ public class HomePageTest extends BasePage {
         // Validation for Footer
 
     }
-    @Test (priority = 3)
+    @Test (priority = 3, groups = {"smoke", "ElementPage"})
     public void testValidationOfHomePage() throws InterruptedException {
         homePage.validateHomepage();
         System.out.println("Title of the page is: "+ driver.getTitle());

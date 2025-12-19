@@ -1,12 +1,10 @@
 package pages;
 
-import com.aventstack.extentreports.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.ConfigReader;
-
 import java.io.IOException;
 
 public class ElementsPage {
@@ -42,7 +40,7 @@ public class ElementsPage {
     public By radioButton = By.xpath("//ul[@class='menu-list']//span[text()='Radio Button']");
     public By radioButtonTitle = By.xpath("//h1[text()='Radio Button']");
     public By yesRadioButton = By.xpath("//label[@for='yesRadio']");
-    public By impressiveRadioButton = By.id("impressiveRadio");
+    public By impressiveRadioButton = By.xpath("//label[@for='impressiveRadio']");
     public By noRadioButton = By.id("noRadio");  //this is disabled radio button
 
    //Check Web Tables
@@ -127,7 +125,7 @@ public class ElementsPage {
         driver.findElement(downloadCheckBox).isDisplayed();
     }
 
-    public void validateRadioButton () {
+    public void validateRadioButton (String outputYes , String outputImp) {
         openRadioButtonPage();
         driver.findElement(radioButtonTitle).isDisplayed();
         driver.findElement(yesRadioButton).isEnabled();
@@ -136,5 +134,14 @@ public class ElementsPage {
 
         driver.findElement(yesRadioButton).click();
         driver.findElement(By.className("mt-3"));
+        driver.findElement(By.xpath("//span[text()='"+ outputYes +"']")).isDisplayed();
+        driver.findElement(impressiveRadioButton).click();
+        driver.findElement(By.xpath("//span[text()='"+ outputImp +"']")).isDisplayed();
+    }
+
+    public boolean isOutPutDisplayed(String outputYes){
+        return !driver.findElements(
+                By.xpath("//span[text()='"+ outputYes +"']")
+        ).isEmpty();
     }
 }
