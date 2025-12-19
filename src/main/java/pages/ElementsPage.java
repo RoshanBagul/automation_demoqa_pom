@@ -127,6 +127,9 @@ public class ElementsPage {
 
     public void validateRadioButton (String outputYes , String outputImp) {
         openRadioButtonPage();
+        WebElement element = driver.findElement(yesRadioButton);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
         driver.findElement(radioButtonTitle).isDisplayed();
         driver.findElement(yesRadioButton).isEnabled();
         driver.findElement(impressiveRadioButton).isEnabled();
