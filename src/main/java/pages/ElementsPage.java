@@ -24,6 +24,7 @@ public class ElementsPage {
     public By outPut = By.id("output");
     public String full_name = "Automation" + Math.random();
     public  By elementList = By.xpath("//div[@class='element-group']//div[@class='element-list collapse show']");
+    public By searchBar = By.xpath("//input[@id='searchBox']");
 
    // Check Box Elements
     public By checkBox = By.xpath("//span[text()='Check Box']");
@@ -46,6 +47,16 @@ public class ElementsPage {
    //Check Web Tables
     public By webTables = By.xpath("//ul[@class='menu-list']//span[text()='Web Tables']");
     public By webTableTitle = By.xpath("//h1[text()='Web Tables']");
+    public By AddButton = By.id("addNewRecordButton");
+    public By registrationForm = By.xpath("//div[@class='modal-content']");
+    public By formFirstName = By.xpath("//input[@id='firstName']");
+    public By formLastName = By.xpath("//input[@id='lastName']");
+    public By formEmail = By.xpath("//input[@id='userEmail']");
+    public By formAge = By.xpath("//input[@id='age']");
+    public By formSalary = By.xpath("//input[@id='salary']");
+    public By formDepartment = By.xpath("//input[@id='department']");
+    public By closeX = By.xpath("//span[text()='Close']");
+
 
     //Check Buttons
     public By buttons = By.xpath("//ul[@class='menu-list']//span[text()='Buttons']");
@@ -146,5 +157,32 @@ public class ElementsPage {
         return !driver.findElements(
                 By.xpath("//span[text()='"+ outputYes +"']")
         ).isEmpty();
+    }
+
+    public void validateWebTables(){
+        openWebTablesPage();
+        driver.findElement(webTableTitle).isDisplayed();
+        driver.findElement(AddButton).click();
+        driver.findElement(registrationForm).isDisplayed();
+    }
+    public void fillRegistrationForm() throws IOException {
+        driver.findElement(formFirstName).sendKeys(ConfigReader.get("First_Name"));
+        driver.findElement(formLastName).sendKeys(ConfigReader.get("Last_Name"));
+        driver.findElement(formEmail).sendKeys(ConfigReader.get("Email_id"));
+        driver.findElement(formAge).sendKeys(ConfigReader.get("Age"));
+        driver.findElement(formSalary).sendKeys(ConfigReader.get("Salary"));
+        driver.findElement(formDepartment).sendKeys(ConfigReader.get("Department"));
+    }
+
+    public void validateInputTextlength(String maxlength, String type){
+        driver.findElement(By.xpath("//input[@maxlength='"+ maxlength +"' and @id='"+ type +"']"));
+    }
+    public void clickSubmitButton(){
+        driver.findElement(submitButton).click();
+    }
+
+    public void validateSearchBox(String searchItem){
+        driver.findElement(searchBar).click();
+        driver.findElement(searchBar).sendKeys(searchItem);
     }
 }

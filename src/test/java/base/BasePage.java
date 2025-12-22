@@ -101,6 +101,9 @@ public class BasePage {
     public void tearDown(ITestResult result) {
        
         ExtentTest extentTest = getTest();
+        if (extentTest == null){
+            return;
+        }
 
         if (result.getStatus() == ITestResult.FAILURE){
             extentTest.fail(result.getThrowable());
