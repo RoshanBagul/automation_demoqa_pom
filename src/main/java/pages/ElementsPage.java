@@ -5,12 +5,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import util.ConfigReader;
+import util.Helper;
+
 import java.io.IOException;
 
-public class ElementsPage {
-    private final WebDriver driver;
+public class ElementsPage extends Helper {
+    private WebDriver driver;
     public ElementsPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+        this.driver = driver; // the local copy is also initialized
     }
 
     public By menulist = By.cssSelector("ul.menu-list");
@@ -61,6 +64,7 @@ public class ElementsPage {
     //Check Buttons
     public By buttons = By.xpath("//ul[@class='menu-list']//span[text()='Buttons']");
     public By buttonsTitle = By.xpath("//h1[text()='Buttons']");
+    public By doubleClickButton = By.xpath("//button[text()='Double Click Me']");
 
     //Check Links
     public By links = By.xpath("//ul[@class='menu-list']//span[text()='Links']");
@@ -184,5 +188,12 @@ public class ElementsPage {
     public void validateSearchBox(String searchItem){
         driver.findElement(searchBar).click();
         driver.findElement(searchBar).sendKeys(searchItem);
+    }
+
+    public void validateButtonsPage(){
+        openButtonsPage();
+        Helper.doubleClickButton("Double Click Me");
+        Helper.rightclickButton("Right Click Me");
+        Helper.clickbutton("Click Me");
     }
 }
