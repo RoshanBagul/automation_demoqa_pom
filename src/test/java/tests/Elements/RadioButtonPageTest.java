@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 
-import java.io.IOException;
-
 public class RadioButtonPageTest extends BasePage {
 
     public ElementsPage elementsPage;
