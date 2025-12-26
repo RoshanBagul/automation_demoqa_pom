@@ -21,4 +21,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Maven Tests
-        run: mvn clean test
+        run: mvn clean test -Djava.util.logging.config.file=logging.properties
