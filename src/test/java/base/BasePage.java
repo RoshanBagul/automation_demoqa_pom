@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.*;
@@ -70,7 +71,17 @@ public class BasePage {
         // launch appropriate browser
         switch (browser) {
             case "CHROME":
-                driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+
+                // GitHub Actions / Linux CI fix
+                if (System.getenv("GITHUB_ACTIONS") != null) {
+                    options.addArguments("--headless=new");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--window-size=1920,1080");
+                }
+                driver = new ChromeDriver(options);
                 break;
             case "FIREFOX":
                 driver = new FirefoxDriver();
@@ -81,10 +92,12 @@ public class BasePage {
         }
         Reporter.log("===============Browser " + browser + " launched successfully==================", true);
 
-        driver.manage().window().maximize();
+        if (System.getenv("GITHUB_ACTIONS") == null){
+            driver.manage().window().maximize();
+        }
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("duration"))));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(prop.getProperty("duration"))));
         driver.get(ConfigReader.get("baseurl"));
         String url = driver.getCurrentUrl();
         System.out.println("Current URl:  " + url);
