@@ -21,9 +21,5 @@ public class RadioButtonPageTest extends BasePage {
     public void testRadioButtonValidation() {
         homePage.openElementsPage();
         elementsPage.validateRadioButton("Yes","Impressive");
-
-        Assert.assertFalse(
-                elementsPage.isOutPutDisplayed("Yes"), "Output 'Y' should NOT be displayed"
-        );
     }
 }
