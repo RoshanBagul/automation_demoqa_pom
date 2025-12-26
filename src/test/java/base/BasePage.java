@@ -96,8 +96,8 @@ public class BasePage {
             driver.manage().window().maximize();
         }
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(prop.getProperty("duration"))));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(prop.getProperty("duration"))));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.get(ConfigReader.get("baseurl"));
         String url = driver.getCurrentUrl();
         System.out.println("Current URl:  " + url);
@@ -112,26 +112,25 @@ public class BasePage {
     }
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
-       
-        ExtentTest extentTest = getTest();
-        if (extentTest == null){
-            return;
-        }
+       try {
+           ExtentTest extentTest = getTest();
+           if (extentTest != null) {
+               if (result.getStatus() == ITestResult.FAILURE) {
+                   extentTest.fail(result.getThrowable());
+               } else if (result.getStatus() == ITestResult.SUCCESS) {
+                   extentTest.pass("Test Passed");
+               } else if (result.getStatus() == ITestResult.SKIP) {
+                   extentTest.skip(result.getThrowable());
+               }
+           }
+           // this method will run After each @test method we will have
+       } finally {
+           if (driver != null) {
+               driver.quit();
+               Reporter.log("===============Browser closed successfully==================", true);
+           }
+       }
 
-        if (result.getStatus() == ITestResult.FAILURE){
-            extentTest.fail(result.getThrowable());
-        } else if (result.getStatus() == ITestResult.SUCCESS){
-            extentTest.pass("Test Passed");
-        } else if (result.getStatus() == ITestResult.SKIP){
-            extentTest.skip(result.getThrowable());
-        }
-
-        // this method will run After each @test method we will have
-
-        if (driver != null) {
-            driver.quit();
-            Reporter.log("===============Browser closed successfully==================", true);
-        }   
     }
 
     @AfterSuite(alwaysRun = true)
