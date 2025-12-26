@@ -22,3 +22,10 @@ jobs:
 
       - name: Run Maven Tests
         run: mvn clean test -Djava.util.logging.config.file=logging.properties -Dsurefire.timeout=60
+
+      - name: Upload Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+            name: screenshots
+            path: screenshots

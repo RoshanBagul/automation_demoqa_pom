@@ -1,9 +1,6 @@
 package util;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,19 +30,32 @@ public class Helper {
 
     public static void rightclickButton(String rightClick){
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//button[text()='"+rightClick+"']")
-                )
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement element = wait.until(
+//                ExpectedConditions.elementToBeClickable(
+//                        By.xpath("//button[text()='"+rightClick+"']")
+//                )
+//        );
+//
+//        Actions actions = new Actions(driver);
+//        actions
+//                .moveToElement(element)
+//                .contextClick()
+//                .pause(Duration.ofMillis(300))
+//                .sendKeys(Keys.ESCAPE)  // Always close menu
+//                .perform();
+
+
+        WebElement element = driver.findElement(
+                By.xpath("//button[text()='" + rightClick + "']")
         );
 
-        Actions actions = new Actions(driver);
-        actions
-                .moveToElement(element)
-                .contextClick()
-                .pause(Duration.ofMillis(300))
-                .sendKeys(Keys.ESCAPE)  // Always close menu
-                .perform();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Simulate right-click via JS (no native menu)
+        js.executeScript(
+                "arguments[0].dispatchEvent(new MouseEvent('contextmenu', {bubbles: true}));",
+                element
+        );
     }
 }
