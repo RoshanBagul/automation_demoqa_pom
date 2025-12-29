@@ -19,6 +19,7 @@
             <class name = "tests.Elements.RadioButtonPageTest"/>
             <class name = "tests.Elements.WebTablePageTest"/>
             <class name=  "tests.Elements.ButtonsPageTest"/>
+            <class name=  "tests.ApiStatusValidationTest"/>
         </classes>
     </test>
 </suite>
