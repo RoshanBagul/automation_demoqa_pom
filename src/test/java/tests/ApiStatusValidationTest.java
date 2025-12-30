@@ -105,9 +105,10 @@ public class ApiStatusValidationTest extends BasePage {
     }
 
     @Test (groups = {"api", "ElementPage"})
-    public void validateNotFound() throws IOException {
+    public void validateNotFound() throws IOException, InterruptedException {
         homePage.openElementsPage();
         elementsPage.openLinksPage();
+        Thread.sleep(2000);
         Helper.clickLinks("Not Found");
 
         String url = ConfigReader.get("Not_found");
