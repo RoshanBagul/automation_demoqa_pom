@@ -1,8 +1,7 @@
-package api;
+package base;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.openqa.selenium.devtools.v135.fetch.model.AuthChallengeResponse;
 
 public class BaseApi {
 
