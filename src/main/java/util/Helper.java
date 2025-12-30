@@ -58,4 +58,8 @@ public class Helper {
                 element
         );
     }
+
+    public static void clickLinks(String links){
+        driver.findElement(By.xpath("//a[text()='" + links + "']")).click();
+    }
 }
