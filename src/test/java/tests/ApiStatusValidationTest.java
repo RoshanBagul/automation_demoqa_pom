@@ -3,6 +3,9 @@ package tests;
 import base.BasePage;
 import com.aventstack.extentreports.ExtentTest;
 import io.restassured.response.Response;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -109,6 +112,10 @@ public class ApiStatusValidationTest extends BasePage {
         homePage.openElementsPage();
         elementsPage.openLinksPage();
         Thread.sleep(2000);
+        WebElement element = driver.findElement(By.linkText("Not Found"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+
         Helper.clickLinks("Not Found");
 
         String url = ConfigReader.get("Not_found");
