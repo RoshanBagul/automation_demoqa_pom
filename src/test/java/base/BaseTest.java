@@ -106,6 +106,15 @@ public class BaseTest {
                     options.addArguments("--disable-gpu");
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--disable-extensions");
+                    options.addArguments("--disable-infobars");
+                    options.addArguments("--remote-allow-origins=*");
+                    options.addArguments("--disable-notifications");
+                    options.addArguments("--disable-popup-blocking");
+                    options.addArguments("--disable-features=InterestCohort"); //ads tracking
+                    options.addArguments("--disable-features=AdsinterestGroupAPI");
+                    options.addArguments("--disable-blink-features=AutomationControlled");
                 }
                 driver = new ChromeDriver(options);
                 Driver_manager.setDriver(driver);
