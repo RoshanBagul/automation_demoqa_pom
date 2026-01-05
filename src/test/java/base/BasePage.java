@@ -4,6 +4,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -72,6 +75,8 @@ public class BasePage {
         switch (browser) {
             case "CHROME":
                 ChromeOptions options = new ChromeOptions();
+                options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+                options.addArguments("--window-size=1920,1080");
 
                 // GitHub Actions / Linux CI fix
                 if (System.getenv("GITHUB_ACTIONS") != null) {
@@ -79,7 +84,9 @@ public class BasePage {
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");
                     options.addArguments("--disable-gpu");
-                    options.addArguments("--window-size=1920,1080");
+                    options.addArguments("--disable-extensions");
+                    options.addArguments("--disable-infobars");
+                    options.addArguments("--remote-allow-origins=*");
                 }
                 driver = new ChromeDriver(options);
                 break;

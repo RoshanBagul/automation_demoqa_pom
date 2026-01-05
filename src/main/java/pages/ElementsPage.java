@@ -68,6 +68,8 @@ public class ElementsPage extends Helper {
 
     //Check Links
     public By links = By.xpath("//ul[@class='menu-list']//span[text()='Links']");
+    public By homelink = By.linkText("Home");
+    public By homeDynamiclink = By.id("dynamicLink");
 
     //Check Broken Links-Images
     public By brokenLinks = By.xpath("//ul[@class='menu-list']//span[text()='Broken Links - Images']");
