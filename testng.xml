@@ -3,6 +3,7 @@
     <test name="All Test">
         <listeners>
             <listener class-name="listeners.ExtentListener"/>
+            <listener class-name="listeners.AdBlockerListener"/>
         </listeners>
 
         <groups>

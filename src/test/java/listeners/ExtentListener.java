@@ -11,8 +11,10 @@ import utils.ExtentManager;
 import utils.ScreenshotUtil;
 
 public class ExtentListener implements ITestListener {
+
     private static ExtentReports extent = ExtentManager.getInstance();
     public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+
     @Override
     public void onTestStart(ITestResult result){
         // Create Extenttest with class + method name
