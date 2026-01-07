@@ -1,6 +1,7 @@
 package tests.Elements;
 
-import base.BasePage;
+import base.BaseTest;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 
-public class ButtonsPageTest extends BasePage {
+public class ButtonsPageTest extends BaseTest {
     public ElementsPage elementsPage;
     public HomePage homePage;
 
@@ -19,7 +20,7 @@ public class ButtonsPageTest extends BasePage {
     }
 
     @Test (groups = {"smoke", "ElementPage"})
-    public void TestButtonsPage(){
+    public void TestButtonsPage() throws InterruptedException{
         homePage.openElementsPage();
         elementsPage.validateButtonsPage();
         Assert.assertEquals(driver.findElement(By.id("doubleClickMessage")).getText(), "You have done a double click");

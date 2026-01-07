@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import util.ConfigReader;
-import util.Helper;
+import utils.ConfigReader;
+import utils.Helper;
 
 import java.io.IOException;
 
@@ -193,7 +193,7 @@ public class ElementsPage extends Helper {
         driver.findElement(searchBar).sendKeys(searchItem);
     }
 
-    public void validateButtonsPage(){
+    public void validateButtonsPage() throws InterruptedException {
         openButtonsPage();
         Helper.doubleClickButton("Double Click Me");
         Helper.rightclickButton("Right Click Me");

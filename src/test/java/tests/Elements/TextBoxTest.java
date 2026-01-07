@@ -1,14 +1,13 @@
 package tests.Elements;
 
-import base.BasePage;
+import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
-
 import java.io.IOException;
 
-public class TextBoxTest extends BasePage{
+public class TextBoxTest extends BaseTest{
     public ElementsPage elementsPage;
     public HomePage homePage;
 

@@ -1,4 +1,4 @@
-package util;
+package utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ElementsPage;
 import pages.HomePage;
-
 import java.time.Duration;
 
 
@@ -21,7 +20,8 @@ public class Helper {
         driver.findElement(By.xpath("//button[text()='"+buttonName+"']")).click();
     }
 
-    public static void doubleClickButton(String doubleClick){
+    public static void doubleClickButton(String doubleClick) throws InterruptedException {
+        Thread.sleep(500);
         WebElement element = driver.findElement(By.xpath("//button[text()='"+doubleClick+"']"));
 
         Actions actions = new Actions(driver);

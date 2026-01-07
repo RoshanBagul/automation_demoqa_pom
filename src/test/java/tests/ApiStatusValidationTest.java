@@ -1,6 +1,7 @@
 package tests;
 
-import base.BasePage;
+import base.BaseTest;
+
 import com.aventstack.extentreports.ExtentTest;
 import io.restassured.response.Response;
 import org.openqa.selenium.By;
@@ -12,12 +13,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
-import util.ConfigReader;
-import util.Helper;
+import utils.ConfigReader;
+import utils.Helper;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-public class ApiStatusValidationTest extends BasePage {
+public class ApiStatusValidationTest extends BaseTest {
 
     public ElementsPage elementsPage;
     public HomePage homePage;
