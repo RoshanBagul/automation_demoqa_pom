@@ -7,12 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import utils.AdHandler;
 import utils.ExtentManager;
 import utils.ScreenshotUtil;
 
 public class ExtentListener implements ITestListener {
+
     private static ExtentReports extent = ExtentManager.getInstance();
     public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+
     @Override
     public void onTestStart(ITestResult result){
         // Create Extenttest with class + method name
@@ -22,6 +26,7 @@ public class ExtentListener implements ITestListener {
         ExtentTest extentTest = extent.createTest(testName);
         // Store it in BaseTest's ThreadLocal
         BaseTest.test.set(extentTest);
+        AdHandler.handleAds(BaseTest.getDriver());
     }
     @Override
     public void onTestSuccess(ITestResult result){
