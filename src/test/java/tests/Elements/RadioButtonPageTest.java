@@ -1,13 +1,13 @@
 package tests.Elements;
 
-import base.BasePage;
+import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 
-public class RadioButtonPageTest extends BasePage {
+public class RadioButtonPageTest extends BaseTest {
 
     public ElementsPage elementsPage;
     public HomePage homePage;

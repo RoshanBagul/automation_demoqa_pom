@@ -1,17 +1,16 @@
 package tests.Elements;
 
-import base.BasePage;
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
-import util.ConfigReader;
-
+import utils.ConfigReader;
 import java.io.IOException;
 
-public class WebTablePageTest extends BasePage {
+public class WebTablePageTest extends BaseTest {
 
     public ElementsPage elementsPage;
     public HomePage homePage;

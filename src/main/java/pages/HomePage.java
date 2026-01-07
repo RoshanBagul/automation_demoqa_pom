@@ -4,12 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import base.BasePage;
 
-public class HomePage {
-    public WebDriver driver;
-    public  HomePage(WebDriver driver){
+public class HomePage extends BasePage{
+
+    public HomePage(WebDriver driver){
         this.driver = driver;
     }
+
     private By homepage = By.xpath("//div[@class='category-cards']");
     public By elementsCard = By.xpath("//h5[text()='Elements']");
     private By formsCard = By.xpath("//h5[text()='Forms']");

@@ -1,14 +1,14 @@
 package listeners;
 
-import base.BasePage;
+import base.BaseTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import util.ExtentManager;
-import util.ScreenshotUtil;
+import utils.ExtentManager;
+import utils.ScreenshotUtil;
 
 public class ExtentListener implements ITestListener {
     private static ExtentReports extent = ExtentManager.getInstance();
@@ -21,19 +21,19 @@ public class ExtentListener implements ITestListener {
         String testName = result.getMethod().getMethodName();
         ExtentTest extentTest = extent.createTest(testName);
         // Store it in BaseTest's ThreadLocal
-        BasePage.test.set(extentTest);
+        BaseTest.test.set(extentTest);
     }
     @Override
     public void onTestSuccess(ITestResult result){
-        ExtentTest test = BasePage.getTest();
+        ExtentTest test = BaseTest.getTest();
         if (test != null) {
             test.pass("Test passed");
         }
     }
     @Override
     public void onTestFailure(ITestResult result){
-        ExtentTest test = BasePage.getTest();
-        WebDriver driver = BasePage.getDriver();
+        ExtentTest test = BaseTest.getTest();
+        WebDriver driver = BaseTest.getDriver();
 
         if (test != null) {
             test.fail(result.getThrowable());
@@ -50,7 +50,7 @@ public class ExtentListener implements ITestListener {
     }
     @Override
     public void onTestSkipped(ITestResult result) {
-        ExtentTest test = BasePage.getTest();
+        ExtentTest test = BaseTest.getTest();
         if (test != null){
             test.skip(result.getThrowable());
         }

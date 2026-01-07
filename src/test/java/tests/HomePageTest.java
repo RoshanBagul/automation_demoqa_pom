@@ -1,15 +1,16 @@
 package tests;
 
-import base.BasePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import base.BaseTest;
 import pages.ElementsPage;
 import pages.HomePage;
 
 
-public class HomePageTest extends BasePage {
+public class HomePageTest extends BaseTest {
     public HomePage homePage;
     @BeforeMethod(alwaysRun = true)
     public void initPages(){
