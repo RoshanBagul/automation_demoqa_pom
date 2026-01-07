@@ -3,13 +3,14 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.ElementsPage;
 import pages.HomePage;
 
-
+// @Listeners(listeners.AdBlockListener.class)
 public class HomePageTest extends BaseTest {
     public HomePage homePage;
     @BeforeMethod(alwaysRun = true)
