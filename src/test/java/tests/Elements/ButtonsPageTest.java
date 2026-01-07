@@ -20,7 +20,7 @@ public class ButtonsPageTest extends BaseTest {
     }
 
     @Test (groups = {"smoke", "ElementPage"})
-    public void TestButtonsPage(){
+    public void TestButtonsPage() throws InterruptedException{
         homePage.openElementsPage();
         elementsPage.validateButtonsPage();
         Assert.assertEquals(driver.findElement(By.id("doubleClickMessage")).getText(), "You have done a double click");

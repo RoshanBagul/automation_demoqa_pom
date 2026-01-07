@@ -20,7 +20,8 @@ public class Helper {
         driver.findElement(By.xpath("//button[text()='"+buttonName+"']")).click();
     }
 
-    public static void doubleClickButton(String doubleClick){
+    public static void doubleClickButton(String doubleClick) throws InterruptedException {
+        Thread.sleep(500);
         WebElement element = driver.findElement(By.xpath("//button[text()='"+doubleClick+"']"));
 
         Actions actions = new Actions(driver);

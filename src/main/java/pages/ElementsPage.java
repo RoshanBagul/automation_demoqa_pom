@@ -192,7 +192,7 @@ public class ElementsPage extends Helper {
         driver.findElement(searchBar).sendKeys(searchItem);
     }
 
-    public void validateButtonsPage(){
+    public void validateButtonsPage() throws InterruptedException {
         openButtonsPage();
         Helper.doubleClickButton("Double Click Me");
         Helper.rightclickButton("Right Click Me");
