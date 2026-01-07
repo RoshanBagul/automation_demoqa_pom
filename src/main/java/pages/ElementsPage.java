@@ -76,6 +76,7 @@ public class ElementsPage extends Helper {
 
     //Check upload and download
     public By uploadAndDownload = By.xpath("//ul[@class='menu-list']//span[text()='Upload and Download']");
+    public By uploadUnput = By.id("uploadFile");
 
     //Check Dynamic Properties
     public By dynamicProperties = By.xpath("//ul[@class='menu-list']//span[text()='Dynamic Properties']");
@@ -197,5 +198,12 @@ public class ElementsPage extends Helper {
         Helper.doubleClickButton("Double Click Me");
         Helper.rightclickButton("Right Click Me");
         Helper.clickbutton("Click Me");
+    }
+
+    public void uploadFile(String filePath){
+        if (filePath == null || filePath.isEmpty()) {
+        throw new IllegalArgumentException("File path is null or empty");
+    }
+        driver.findElement(uploadUnput).sendKeys(filePath);
     }
 }
