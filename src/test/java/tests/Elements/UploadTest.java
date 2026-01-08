@@ -1,6 +1,7 @@
-package tests;
+package tests.Elements;
 
 import base.BasePage;
+import base.BaseTest;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 
-public class UploadTest extends BasePage {
+public class UploadTest extends BaseTest {
 
     public HomePage homePage;
     public ElementsPage elementsPage;
@@ -20,7 +21,7 @@ public class UploadTest extends BasePage {
         elementsPage = new ElementsPage(driver);
     }
 
-    @Test
+    @Test (groups = {"smoke", "ElementPage"})
     public void testFileUpload(){
         homePage.openElementsPage();
         elementsPage.openUploadAndDownloadPage();

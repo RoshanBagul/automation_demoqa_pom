@@ -28,9 +28,8 @@ public class HomePage extends BasePage{
         return new ElementsPage(driver);
     }
 
-    public Forms openFormsPage() {
+    public void openFormsPage() {
         driver.findElement(formsCard).click();
-        return new Forms(driver);
     }
 
     public void openAlertsFrameWindowsPage() {
