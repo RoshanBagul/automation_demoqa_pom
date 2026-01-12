@@ -23,6 +23,7 @@
             <class name = "tests.Elements.WebTablePageTest"/>
             <class name=  "tests.Elements.ButtonsPageTest"/>
             <class name=  "tests.ApiStatusValidationTest"/>
+            <class name=  "tests.Elements.UploadTest"/>
         </classes>
     </test>
 </suite>
