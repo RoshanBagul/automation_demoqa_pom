@@ -59,7 +59,16 @@ public class Helper {
         );
     }
 
-    public static void clickLinks(String links){
+    public static void clickLinks(String links) {
         driver.findElement(By.xpath("//a[text()='" + links + "']")).click();
+    }
+
+    public static void allowSingleTabOnly(String switchTabButton, String WindowId) {
+        String parent = driver.getWindowHandle();
+        clickbutton(switchTabButton);
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());       
+        driver.findElement(By.id(WindowId)).isDisplayed();
+        driver.close();
+        driver.switchTo().window(parent);
     }
 }
