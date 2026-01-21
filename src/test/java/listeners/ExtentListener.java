@@ -23,7 +23,8 @@ public class ExtentListener implements ITestListener {
         System.out.println(">> ExtentListener STARTED");
 
         String testName = result.getMethod().getMethodName();
-        ExtentTest extentTest = extent.createTest(testName);
+        ExtentTest extentTest = ExtentManager.getInstance().createTest(testName);
+        // ExtentTest extentTest = extent.createTest(testName);
         // Store it in BaseTest's ThreadLocal
         BaseTest.test.set(extentTest);
         AdHandler.handleAds(BaseTest.getDriver());

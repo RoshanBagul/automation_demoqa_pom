@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
-<suite name = "Automation Suite">
+<suite name = "Automation Suite" parallel="classes" thread-count="2">
 
     <listeners>
         <listener class-name="listeners.ExtentListener"/>
         <!-- <listener class-name="listeners.AdBlockerListener"/> -->
     </listeners>
 
-    <test name="All Test">
+    <test name="TestNG Parallel Tests">
 
         <groups>
             <run>
@@ -21,10 +21,24 @@
             <class name = "tests.Elements.TextBoxTest"/>
             <class name = "tests.Elements.RadioButtonPageTest"/>
             <class name = "tests.Elements.WebTablePageTest"/>
-            <class name=  "tests.Elements.ButtonsPageTest"/>
-            <class name=  "tests.ApiStatusValidationTest"/>
-            <class name=  "tests.Elements.UploadTest"/>f
-            <class name=  "tests.AlertsFrameWindows.browserWindowsTest"/>
+            <class name = "tests.Elements.ButtonsPageTest"/>
+            <class name = "tests.Elements.UploadTest"/>
+            <class name = "tests.AlertsFrameWindows.browserWindowsTest"/>
+            <class name = "tests.ApiStatusValidationTest"/>
         </classes>
     </test>
+
+
+    <!-- <test name = "API Tests">
+       
+        <groups>
+            <run>
+                <include name="api"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name = "tests.ApiStatusValidationTest"/>
+        </classes>
+    </test>     -->
 </suite>

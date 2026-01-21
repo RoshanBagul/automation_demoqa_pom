@@ -36,6 +36,7 @@ import utils.Driver_manager;
 
 public class BaseTest {
 
+    // private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     protected static WebDriver driver;
     protected static Properties prop;
     protected static ExtentReports extent;
