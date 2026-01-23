@@ -21,10 +21,11 @@
             <class name = "tests.Elements.TextBoxTest"/>
             <class name = "tests.Elements.RadioButtonPageTest"/>
             <class name = "tests.Elements.WebTablePageTest"/>
-            <class name=  "tests.Elements.ButtonsPageTest"/>
-            <class name=  "tests.ApiStatusValidationTest"/>
-            <class name=  "tests.Elements.UploadTest"/>f
-            <class name=  "tests.AlertsFrameWindows.browserWindowsTest"/>
+            <class name = "tests.Elements.ButtonsPageTest"/>
+            <class name = "tests.ApiStatusValidationTest"/>
+            <class name = "tests.Elements.UploadTest"/>
+            <class name = "tests.AlertsFrameWindows.browserWindowsTest"/>
+            <class name = "tests.Widgets.ProgressBarTest"/>
         </classes>
     </test>
 </suite>

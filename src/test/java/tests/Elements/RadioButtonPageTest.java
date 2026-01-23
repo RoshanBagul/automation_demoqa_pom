@@ -18,7 +18,7 @@ public class RadioButtonPageTest extends BaseTest {
     }
 
     @Test(groups = {"smoke", "ElementPage"})
-    public void testRadioButtonValidation() {
+    public void TestRadioButtonValidation() {
         homePage.openElementsPage();
         elementsPage.validateRadioButton("Yes","Impressive");
     }

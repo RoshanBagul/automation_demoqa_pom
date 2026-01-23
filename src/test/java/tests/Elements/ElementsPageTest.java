@@ -19,7 +19,7 @@ public class ElementsPageTest extends BaseTest {
     }
 
     @Test (groups = {"smoke", "ElementPage"})
-    public void  testCheckBoxValidation(){
+    public void  TestCheckBoxValidation(){
         homePage.openElementsPage();
         elementsPage.validateCheckBox();
     }
