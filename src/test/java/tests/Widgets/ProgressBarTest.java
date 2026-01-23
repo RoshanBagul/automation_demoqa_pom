@@ -21,7 +21,7 @@ public class ProgressBarTest extends BaseTest {
         widgets = new Widgets(driver);
     }
 
-    @Test(groups = {"regression","WidgetPage"})
+    @Test(groups = {"smoke","WidgetPage"})
     public void testProgressBar() throws InterruptedException {
         homePage.openWidgetsPage();
         widgets.openProgressBar();

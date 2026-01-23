@@ -22,7 +22,7 @@ public class UploadTest extends BaseTest {
     }
 
     @Test (groups = {"smoke", "ElementPage"})
-    public void testFileUpload(){
+    public void TestFileUpload(){
         homePage.openElementsPage();
         elementsPage.openUploadAndDownloadPage();
         String filePath = System.getProperty("user.dir") + "/src/test/resources/upload/pomimage.png";
